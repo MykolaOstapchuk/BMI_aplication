@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back5"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/CalculateYourBMI"
+        android:textColor="@android:color/background_dark"
+        android:layout_marginTop="160dp"
+        android:textSize="40sp"
+        android:text="@string/CalculateBMI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:id="@+id/Height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SelectHeight"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/setHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/StartHeight"
+        tools:ignore="MissingConstraints" />
+
+    <SeekBar
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/Height"
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/slider"
+        android:layout_marginStart="10dp"
+        android:id="@+id/Weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SelectWeight"
+        tools:ignore="MissingConstraints"
+        />
+
+    <TextView
+        android:layout_below="@+id/slider"
+        android:id="@+id/setWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentEnd="true"
+        android:text="@string/StartWeight"
+        tools:ignore="MissingConstraints" />
+
+    <SeekBar
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/Weight"
+        android:id="@+id/sliderHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:background="#1f1cc7"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/Calculate"
+        android:id="@+id/calculateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>
