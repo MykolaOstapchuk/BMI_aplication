@@ -21,8 +21,8 @@ import java.util.concurrent.CancellationException;
 
 public class set_params_fragment extends Fragment {
 
-    public interface onSomeEventListener{
-        public void someEvent(String heigh,String weight);
+    interface onSomeEventListener{
+        void someEvent(String heigh,String weight);
     }
 
     onSomeEventListener someEventListener;
