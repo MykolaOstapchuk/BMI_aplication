@@ -1,141 +1,73 @@
 package com.example.bmi;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import android.app.FragmentTransaction;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import androidx.fragment.app.FragmentTransaction;
 
 interface MakeVisible {
     void makeVisible();
 }
 
-public class MainActivity extends AppCompatActivity implements MakeVisible {
+public class MainActivity extends AppCompatActivity implements set_params_fragment.onSomeEventListener {
+
+ private Fragment cuFragment;
 
 
-    @Override
-    public void makeVisible() {
-        textView.setVisibility(View.VISIBLE);
-        textViewWeight.setVisibility(View.VISIBLE);
-        seekBar.setVisibility(View.VISIBLE);
-        seekBarWeight.setVisibility(View.VISIBLE);
-        temp1.setVisibility(View.VISIBLE);
-        temp2.setVisibility(View.VISIBLE);
-        btn.setVisibility(View.VISIBLE);
-        temp3.setVisibility(View.VISIBLE);
-    }
+//    @Override
+//    public void makeVisible() {
+//        textView.setVisibility(View.VISIBLE);
+//        textViewWeight.setVisibility(View.VISIBLE);
+//        seekBar.setVisibility(View.VISIBLE);
+//        seekBarWeight.setVisibility(View.VISIBLE);
+//        temp1.setVisibility(View.VISIBLE);
+//        temp2.setVisibility(View.VISIBLE);
+//        btn.setVisibility(View.VISIBLE);
+//        temp3.setVisibility(View.VISIBLE);
+//    }
 
-    SeekBar seekBar;
-        TextView textView;
-        Double temp=0.0;
-        SeekBar seekBarWeight;
-        TextView textViewWeight;
-        TextView temp1,temp2,temp3;
-        Double height=0.0;
-        Integer weight=0;
-        Button btn;
-        RelativeLayout relativeLayout;
-
-        Fragment currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn = findViewById(R.id.calculateBtn);
 
-
-        temp1=findViewById(R.id.Weight);
-        temp2=findViewById(R.id.Height);
-        temp3=findViewById(R.id.CalculateYourBMI);
-
-        seekBar = findViewById(R.id.slider);
-        textView= findViewById(R.id.setHeight);
-
-        seekBarWeight = findViewById(R.id.sliderHeight);
-        textViewWeight= findViewById(R.id.setWeight);
-
-        seekBar.setProgress(0);
-        seekBar.setMax(250);
-
-        seekBarWeight.setProgress(0);
-        seekBarWeight.setMax(200);
+        cuFragment = set_params_fragment.newInstance("","");
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.set_param_fragment_page,cuFragment,"CALCULATE_TAG")
+                .commit();
 
 
 
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                if(i<100) {
-                    height = (double)i;
-                    textView.setText(i + "cm");
-                }
-                else {
-                    temp= (double)i/100 ;
-                    height=temp;
-                    textView.setText(temp+"m");
-                }
-            }
+    }
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
+    @Override
+    public void onBackPressed() {
 
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if (count == 0) {
+            getSupportFragmentManager().popBackStack();
+            finish();
+            //super.onBackPressed();
+        } else {
+            getSupportFragmentManager().beginTransaction().remove(getSupportFragmentManager().findFragmentByTag("RESULT_TAG")).commit();
+            getSupportFragmentManager().popBackStack();
+        }
 
 
-        seekBarWeight.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                    weight=i;
-                    textViewWeight.setText(i+" kg");
-            }
+    }
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                textView.setVisibility(View.GONE);
-                textViewWeight.setVisibility(View.GONE);
-                seekBar.setVisibility(View.GONE);
-                seekBarWeight.setVisibility(View.GONE);
-                temp1.setVisibility(View.GONE);
-                temp2.setVisibility(View.GONE);
-                temp3.setVisibility(View.GONE);
-                btn.setVisibility(View.GONE);
-
-
-
-                //back stack?
-                currentFragment = Calculate.newInstance(String.valueOf(height),String.valueOf(weight));
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .add(R.id.frameLayout, currentFragment, "LOGIN_TAG")
-                        .commit();
-            }
-        });
+    @Override
+    public void someEvent(String height, String weight) {
+        cuFragment = result_fragment.newInstance(height,weight);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.result_fragment_page,cuFragment,"RESULT_TAG")
+                .addToBackStack("RESULT_TAG")
+                .commit();
     }
 }
