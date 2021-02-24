@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#CBA"
     android:id="@+id/resultBackground"
-    tools:context=".set_params_fragment">
+    tools:context=".SetParamsFragment">
 
     <TextView
         android:textColor="@android:color/white"
