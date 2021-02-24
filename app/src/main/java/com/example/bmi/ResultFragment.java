@@ -11,15 +11,15 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import static com.example.bmi.Constans.FIDDLE;
+import static com.example.bmi.Constans.HEIGHT;
+import static com.example.bmi.Constans.LESSPIES;
+import static com.example.bmi.Constans.MOREPIES;
+import static com.example.bmi.Constans.START_VALUE;
+import static com.example.bmi.Constans.WEIGHT;
+
 
 public class ResultFragment extends Fragment {
-
-    public static int START_VALUE=0;
-    public static String HEIGHT="height";
-    public static String WEIGHT="weight";
-    public static String MOREPIES ="Eat more pies!";
-    public static String FIDDLE="Fit as a fiddle!";
-    public static String LESSPIES="Eat less pies!";
 
     Button returnBtn;
     TextView Result;
