@@ -8,33 +8,24 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-
 import androidx.fragment.app.Fragment;
 
-import static com.example.bmi.Constans.FIDDLE;
-import static com.example.bmi.Constans.HEIGHT;
-import static com.example.bmi.Constans.LESSPIES;
-import static com.example.bmi.Constans.MOREPIES;
-import static com.example.bmi.Constans.START_VALUE;
-import static com.example.bmi.Constans.WEIGHT;
-
+import static com.example.bmi.Constants.HEIGHT;
+import static com.example.bmi.Constants.START_VALUE;
+import static com.example.bmi.Constants.WEIGHT;
 
 public class ResultFragment extends Fragment {
 
     Button returnBtn;
     TextView Result;
     TextView ResultInfo;
-    int weight=START_VALUE;
-    double height=START_VALUE;
+    int weight = START_VALUE;
+    double height = START_VALUE;
     FrameLayout frameLayout;
 
-    public static ResultFragment newInstance(Double param1, int param2) {
-        ResultFragment fragment = new ResultFragment();
-        Bundle args = new Bundle();
-        args.putDouble(HEIGHT, param1);
-        args.putInt(WEIGHT, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public ResultFragment(double height, int weight) {
+        this.weight = weight;
+        this.height = height;
     }
 
     @Override
@@ -53,17 +44,14 @@ public class ResultFragment extends Fragment {
         ResultInfo = view.findViewById(R.id.ResultInfo);
         frameLayout = view.findViewById(R.id.resultBackground);
 
-        height = getArguments().getDouble(HEIGHT);
-        weight = getArguments().getInt(WEIGHT);
-
         if (weight / (height * height) < 18.5) {
-            ResultInfo.setText(MOREPIES);
+            ResultInfo.setText(R.string.EatMorePies);
             frameLayout.setBackgroundColor(getResources().getColor(R.color.colorGreen));
         } else if (weight / (height * height) < 24.9) {
-            ResultInfo.setText(FIDDLE);
+            ResultInfo.setText(R.string.FitAsFiddle);
             frameLayout.setBackgroundColor(getResources().getColor(R.color.colorSky));
         } else {
-            ResultInfo.setText(LESSPIES);
+            ResultInfo.setText(R.string.EatLessPies);
             frameLayout.setBackgroundColor(getResources().getColor(R.color.colorPink));
         }
 
@@ -76,7 +64,7 @@ public class ResultFragment extends Fragment {
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().remove(t).commit();
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 

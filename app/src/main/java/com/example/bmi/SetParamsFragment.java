@@ -12,11 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import static com.example.bmi.Constants.START_VALUE;
+
 
 public class SetParamsFragment extends Fragment {
 
     interface onSomeEventListener {
         void someEvent(Double height, int weight);
+    }
+
+    public SetParamsFragment() {
     }
 
     onSomeEventListener someEventListener;
@@ -36,15 +41,8 @@ public class SetParamsFragment extends Fragment {
     TextView text_view_height;
     TextView text_view_weight;
     Double height = 0.0;
-    Integer weight = 0;
+    int weight = START_VALUE;
     Button calculate_btn;
-
-    public static SetParamsFragment newInstance() {
-        SetParamsFragment fragment = new SetParamsFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
