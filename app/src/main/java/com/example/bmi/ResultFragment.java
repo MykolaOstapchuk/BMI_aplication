@@ -10,10 +10,6 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import static com.example.bmi.Constants.HEIGHT;
-import static com.example.bmi.Constants.START_VALUE;
-import static com.example.bmi.Constants.WEIGHT;
-
 public class ResultFragment extends Fragment {
 
     Button returnBtn;
@@ -55,12 +51,11 @@ public class ResultFragment extends Fragment {
             frameLayout.setBackgroundColor(getResources().getColor(R.color.colorPink));
         }
 
-        if (weight != START_VALUE && height != START_VALUE)
+        if (weight != 0 && height != 0)
             Result.setText(String.format("%.2f", weight / (height * height)));
         else
             Result.setText(String.valueOf(0.0));
 
-        final Fragment t = this;
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
