@@ -19,8 +19,8 @@ public class ResultFragment extends Fragment {
     Button returnBtn;
     TextView Result;
     TextView ResultInfo;
-    int weight = START_VALUE;
-    double height = START_VALUE;
+    int weight;
+    double height;
     FrameLayout frameLayout;
 
     public ResultFragment(double height, int weight) {
