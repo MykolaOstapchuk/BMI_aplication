@@ -36,21 +36,22 @@ public class ResultFragment extends Fragment {
         TextView resultInfo = view.findViewById(R.id.ResultInfo);
         FrameLayout frameLayout = view.findViewById(R.id.resultBackground);
 
-        if (weight / (height * height) < 18.5) {
-            resultInfo.setText(R.string.EatMorePies);
-            frameLayout.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-        } else if (weight / (height * height) < 24.9) {
-            resultInfo.setText(R.string.FitAsFiddle);
-            frameLayout.setBackgroundColor(getResources().getColor(R.color.colorSky));
-        } else {
-            resultInfo.setText(R.string.EatLessPies);
-            frameLayout.setBackgroundColor(getResources().getColor(R.color.colorPink));
-        }
-
-        if (weight != 0 && height != 0)
-            result.setText(String.format("%.2f", weight / (height * height)));
-        else
+        if(weight == 0 || height == 0){
             result.setText(String.valueOf(0.0));
+        }
+        else{
+            if (weight / (height * height) < 18.5) {
+                resultInfo.setText(R.string.EatMorePies);
+                frameLayout.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+            } else if (weight / (height * height) < 24.9) {
+                resultInfo.setText(R.string.FitAsFiddle);
+                frameLayout.setBackgroundColor(getResources().getColor(R.color.colorSky));
+            } else {
+                resultInfo.setText(R.string.EatLessPies);
+                frameLayout.setBackgroundColor(getResources().getColor(R.color.colorPink));
+            }
+            result.setText(String.format("%.2f", weight / (height * height)));
+        }
 
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override

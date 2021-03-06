@@ -41,7 +41,7 @@ public class SetParamsFragment extends Fragment {
     private TextView text_view_height;
     private TextView text_view_weight;
     private Double height=0.0;
-    private int weight=START_VALUE;
+    private int weight=0;
     private Button calculate_btn;
 
     @Override
