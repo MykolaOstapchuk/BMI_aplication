@@ -12,12 +12,8 @@ import androidx.fragment.app.Fragment;
 
 public class ResultFragment extends Fragment {
 
-    Button returnBtn;
-    TextView Result;
-    TextView ResultInfo;
-    int weight;
-    double height;
-    FrameLayout frameLayout;
+    private int weight;
+    private double height;
 
     public ResultFragment(double height, int weight) {
         this.weight = weight;
@@ -35,26 +31,26 @@ public class ResultFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_result_fragment, container, false);
 
-        returnBtn = view.findViewById(R.id.returnBtn);
-        Result = view.findViewById(R.id.Result);
-        ResultInfo = view.findViewById(R.id.ResultInfo);
-        frameLayout = view.findViewById(R.id.resultBackground);
+        Button returnBtn = view.findViewById(R.id.returnBtn);
+        TextView result = view.findViewById(R.id.Result);
+        TextView resultInfo = view.findViewById(R.id.ResultInfo);
+        FrameLayout frameLayout = view.findViewById(R.id.resultBackground);
 
         if (weight / (height * height) < 18.5) {
-            ResultInfo.setText(R.string.EatMorePies);
+            resultInfo.setText(R.string.EatMorePies);
             frameLayout.setBackgroundColor(getResources().getColor(R.color.colorGreen));
         } else if (weight / (height * height) < 24.9) {
-            ResultInfo.setText(R.string.FitAsFiddle);
+            resultInfo.setText(R.string.FitAsFiddle);
             frameLayout.setBackgroundColor(getResources().getColor(R.color.colorSky));
         } else {
-            ResultInfo.setText(R.string.EatLessPies);
+            resultInfo.setText(R.string.EatLessPies);
             frameLayout.setBackgroundColor(getResources().getColor(R.color.colorPink));
         }
 
         if (weight != 0 && height != 0)
-            Result.setText(String.format("%.2f", weight / (height * height)));
+            result.setText(String.format("%.2f", weight / (height * height)));
         else
-            Result.setText(String.valueOf(0.0));
+            result.setText(String.valueOf(0.0));
 
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override

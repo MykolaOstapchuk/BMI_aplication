@@ -24,7 +24,7 @@ public class SetParamsFragment extends Fragment {
     public SetParamsFragment() {
     }
 
-    onSomeEventListener someEventListener;
+    private onSomeEventListener someEventListener;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -36,13 +36,13 @@ public class SetParamsFragment extends Fragment {
         }
     }
 
-    SeekBar seek_bar_height;
-    SeekBar seek_bar_weight;
-    TextView text_view_height;
-    TextView text_view_weight;
-    Double height = 0.0;
-    int weight = START_VALUE;
-    Button calculate_btn;
+    private SeekBar seek_bar_height;
+    private SeekBar seek_bar_weight;
+    private TextView text_view_height;
+    private TextView text_view_weight;
+    private Double height=0.0;
+    private int weight=START_VALUE;
+    private Button calculate_btn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
