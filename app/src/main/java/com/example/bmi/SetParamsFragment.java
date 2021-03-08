@@ -12,25 +12,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import static com.example.bmi.Constants.START_VALUE;
-
 
 public class SetParamsFragment extends Fragment {
 
-    interface onSomeEventListener {
-        void someEvent(Double height, int weight);
+    interface onSetParamListener {
+        void setParam(double height, int weight);
     }
 
     public SetParamsFragment() {
     }
 
-    private onSomeEventListener someEventListener;
+    private onSetParamListener setParamListener;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         try {
-            someEventListener = (onSomeEventListener) context;
+            setParamListener = (onSetParamListener) context;
         } catch (ClassCastException ex) {
             throw new ClassCastException(context.toString() + " must implement onSomeEventListener");
         }
@@ -40,7 +38,7 @@ public class SetParamsFragment extends Fragment {
     private SeekBar seek_bar_weight;
     private TextView text_view_height;
     private TextView text_view_weight;
-    private Double height=0.0;
+    private double height=0.0;
     private int weight=0;
     private Button calculate_btn;
 
@@ -96,7 +94,7 @@ public class SetParamsFragment extends Fragment {
         calculate_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                someEventListener.someEvent(height, weight);
+                setParamListener.setParam(height, weight);
             }
         });
 

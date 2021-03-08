@@ -9,7 +9,7 @@ import static com.example.bmi.Constants.CALCULATE_TAG;
 import static com.example.bmi.Constants.RESULT_TAG;
 
 
-public class MainActivity extends AppCompatActivity implements SetParamsFragment.onSomeEventListener {
+public class MainActivity extends AppCompatActivity implements SetParamsFragment.onSetParamListener {
 
     private Fragment cuFragment;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SetParamsFragment
     }
 
     @Override
-    public void someEvent(Double height, int weight) {
+    public void setParam(double height, int weight) {
         cuFragment = new ResultFragment(height, weight);
         getSupportFragmentManager()
                 .beginTransaction()
