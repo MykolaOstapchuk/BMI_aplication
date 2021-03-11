@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#CBA"
     android:id="@+id/resultBackground"
-    tools:context=".set_params_fragment">
+    tools:context=".SetParamsFragment">
 
     <TextView
         android:textColor="@android:color/white"
@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Relust" />
+        android:text="@string/Result" />
 
     <TextView
         android:textColor="@android:color/white"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:text="@string/Relust" />
+        android:text="@string/Result" />
 
 
     <Button

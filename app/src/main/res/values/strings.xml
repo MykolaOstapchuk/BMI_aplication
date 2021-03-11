@@ -7,7 +7,10 @@
     <string name="Calculate">CALCULATE</string>
     <string name="CalculateBMI">CALCULATE\nYOUR BMI</string>
     <string name="Recalculate">RECALCULATE</string>
+    <string name="EatMorePies">Eat more pies!</string>
+    <string name="FitAsFiddle">Fit as a fiddle!</string>
+    <string name="EatLessPies">Eat less pies!</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="Relust">Your result </string>
+    <string name="Result">Your result </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

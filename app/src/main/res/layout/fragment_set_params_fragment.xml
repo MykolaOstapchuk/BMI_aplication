@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/set_params_fragment_background"
-    tools:context=".set_params_fragment">
+    tools:context=".SetParamsFragment">
 
     <TextView
-        android:id="@+id/CalculateYourBMI"
         android:textColor="@android:color/background_dark"
         android:layout_marginTop="160dp"
         android:textSize="40sp"
@@ -19,7 +18,6 @@
     <TextView
         android:layout_marginStart="10dp"
         android:layout_gravity="center"
-        android:id="@+id/Height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/SelectHeight"
@@ -44,7 +42,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="70dp"
         android:layout_gravity="center"
-        android:id="@+id/Weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/SelectWeight"
