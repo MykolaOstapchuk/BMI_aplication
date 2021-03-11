@@ -1,4 +1,4 @@
-package com.example.bmi;
+package com.example.bmi.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,10 +12,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.bmi.R;
+
 
 public class SetParamsFragment extends Fragment {
 
-    interface onSetParamListener {
+    public interface onSetParamListener {
         void setParam(double height, int weight);
     }
 
@@ -38,8 +40,8 @@ public class SetParamsFragment extends Fragment {
     private SeekBar seek_bar_weight;
     private TextView text_view_height;
     private TextView text_view_weight;
-    private double height=0.0;
-    private int weight=0;
+    private double height;
+    private int weight;
     private Button calculate_btn;
 
     @Override

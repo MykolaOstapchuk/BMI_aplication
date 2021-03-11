@@ -1,4 +1,4 @@
-package com.example.bmi;
+package com.example.bmi.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.bmi.R;
 
 public class ResultFragment extends Fragment {
 
