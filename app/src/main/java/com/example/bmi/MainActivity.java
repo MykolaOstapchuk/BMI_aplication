@@ -5,9 +5,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.bmi.Fragments.ResultFragment;
+import com.example.bmi.Fragments.SetParamsFragment;
+
 import static com.example.bmi.Constants.CALCULATE_TAG;
 import static com.example.bmi.Constants.RESULT_TAG;
-
 
 public class MainActivity extends AppCompatActivity implements SetParamsFragment.onSetParamListener {
 
