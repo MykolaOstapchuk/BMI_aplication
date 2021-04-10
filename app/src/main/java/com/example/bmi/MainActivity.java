@@ -11,7 +11,6 @@ import com.example.bmi.Fragments.SetParamsFragment;
 import static com.example.bmi.Constants.CALCULATE_TAG;
 import static com.example.bmi.Constants.RESULT_TAG;
 
-
 public class MainActivity extends AppCompatActivity implements SetParamsFragment.onSetParamListener {
 
     private Fragment cuFragment;
